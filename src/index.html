@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul class="list">
+    </ul>
+
+    <script src="./require.js" data-main="./index.js"></script>
+    <script>
+        require.config({
+            paths: {
+                "index": './index'
+            }
+        })
+
+        require(['index'], function() {
+            var data = [{
+                title: "满300减30",
+                img: "img/img1.jpg",
+                price: 489
+            }, {
+                title: "满300减50",
+                img: "img/img2.jpg",
+                price: 599
+            }, {
+                title: "3件8折",
+                img: "img/img3.jpg",
+                price: 99
+            }, {
+                title: "满999减100",
+                img: "img/img4.jpg",
+                price: 1299
+            }, {
+                title: "满五免一",
+                img: "img/img5.jpg",
+                price: 39
+            }];
+            var list = document.querySelector(".list");
+            var str = '';
+            console.log(data)
+            data.forEach(item => {
+                str += `<li>
+                            <h3>${item.title}</h3>
+                            <img src="${item.img}" alt="" style="width:80px">
+                            <p>${item.price}</p>
+                        </li>`
+            })
+            list.innerHTML = str;
+
+        })
+    </script>
+</body>
+
+</html>
